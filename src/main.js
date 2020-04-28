@@ -234,9 +234,9 @@ function resultados() {
   divResultados.classList.remove('hidden');
   // Mostrando título según el puntaje
   if (contadorBuenas > 2) {
-    scoreTitle.innerText = "¡Enhorabuena! :D";
+    scoreTitle.innerHTML = "¡Enhorabuena! <i class=\"fas fa-smile-wink\"></i>";
   } else {
-    scoreTitle.innerText = "¡Lástima! :(";
+    scoreTitle.innerHTML = "¡Lástima! <i class=\"fas fa-sad-tear\"></i>";
   }
   // Mostrar puntaje
   scorePoints.innerText = contadorBuenas * 20;

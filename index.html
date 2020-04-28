@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="src/style.css">
+  <script defer src="src/icons.min.js"></script>
   <title>Trivia Kodigo</title>
 </head>
 <body>
   <header>
-    <div id="nav-logo">trivia kodigo</div>
+    <div id="nav-logo">trivia kodigo</i></div>
     <div>
-      <span class="nav-opc">¿Cómo jugar?</span>
-      <span class="nav-opc">Acerca de</span>
+      <span class="nav-opc">¿Cómo jugar? <i class="fas fa-gamepad"></i></span>
+      <span class="nav-opc">Acerca de <i class="fas fa-info-circle"></i></span>
     </div>
   </header>
 
@@ -25,17 +26,17 @@
     </div>
     <div id="step1">
       <p>
-        Para comenzar, ingresa tu nombre y presiona el botón <span class="black">siguiente</span>.
+        Para comenzar, ingresa tu nombre y presiona el botón <i class="fas fa-arrow-circle-right"></i>
       </p>
       <form action="">
         <input type="text" id="txt-name" placeholder="Nombre">
-        <button type="submit" id="siguiente" class="btn">Siguiente</button>
+        <button type="submit" id="siguiente" class="btn"><i class="fas fa-arrow-circle-right"></i></button>
       </form>
     </div>
 
     <div id="step2" class="hidden">
       <p>
-        Muy bien <span id="spanName" class="black">NOMBRE</span>, elecciona la categoría en la que deseas participar:
+        Muy bien <span id="spanName" class="black">NOMBRE</span>, selecciona la categoría en la que deseas participar:
       </p>
       <div id="cards">
         <div class="card" id="card-anime">
@@ -73,8 +74,8 @@
         Correctas: <span id="score-buenas" class="astral">0</span> | Incorrectas: <span id="score-malas" class="astral">0</span>
       </p>
       <div id="game-opcs">
-        <button id="btnJugar" class="btn">Volver a jugar</button>
-        <button id="btnSalir" class="btn">Salir del juego</button>
+        <button id="btnJugar" class="btn">Volver a jugar <i class="fas fa-dice"></i></button>
+        <button id="btnSalir" class="btn">Salir del juego <i class="fas fa-walking"></i></button>
       </div>
     </div>
   </div>

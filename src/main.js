@@ -50,6 +50,7 @@ const checkSeries = document.getElementById('card-series');
 
 // Parte 2: Trivia
 const divTrivia = document.getElementById('trivia');
+const tiempoPregunta = document.getElementById('card-time');
 const numeroPregunta = document.getElementById('card-number');
 const divPregunta = document.getElementById('card-question');
 const btnOpc1 = document.getElementById('btn-opc1');
@@ -164,6 +165,35 @@ function empezarTrivia(){
   console.log("Trivia iniciada:", opcion);
   // Llenando la trivia con pregunta y respuestas
   llenarCardTrivia();
+  // Iniciando el temporizador
+  tiempo();
+}
+
+// Función que va a llevar el control del tiempo en cada pregunta
+function tiempo() {
+  // Estableciendo los segundos
+  let segundos = 15;
+  // Estableciendo el setInterval que llevara el conteo de los segundos
+  temporizador = setInterval(function() {
+    // Verificar si el tiempo se ha acabado
+    if (segundos < 0) {
+      // Limpiando el tiempo restante
+      tiempoPregunta.innerText = "";
+      // Aumentando el contador de preguntas en 1
+      contadorPregunta++;
+      // Parar el setInterval
+      clearInterval(temporizador);
+      // Llenando la trivia con pregunta y respuestas de la siguente pregunta
+      llenarCardTrivia();
+      // Iniciando el temporizador
+      tiempo();
+    } else {
+      // Mostrar el tiempo restante
+      tiempoPregunta.innerText = segundos;
+      // Restar 1 a segundos
+      segundos--;
+    }
+  }, 1000);
 }
 
 // Función para llenar los valores de la Card con la pregunta y respuestas
@@ -218,9 +248,15 @@ function compararRespuesta(res) {
   if (contadorPregunta != 4) {
     // Aumentando el contador de preguntas en 1
     contadorPregunta++;
-    // Llenando la trivia con pregunta y respuestas de la siguiente pregunta
+    // Parar el setInterval
+    clearInterval(temporizador);
+    // Llenando la trivia con pregunta y respuestas de la siguente pregunta
     llenarCardTrivia();
+    // Iniciando el temporizador
+    tiempo();
   } else {
+    // Parar el setInterval
+    clearInterval(temporizador);
     // Mostrar Resultados
     resultados();
   }

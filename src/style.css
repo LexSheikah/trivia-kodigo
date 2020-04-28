@@ -155,7 +155,12 @@ h3{
   border-radius: 30px;
 }
 
-#card-number {
+#card-header {
+  display: flex;
+  align-items: baseline;
+}
+
+#card-time {
   border-radius: 100%;
   border: solid #3D829C 2px;
   padding: 15px;

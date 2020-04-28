@@ -28,9 +28,7 @@ secundary = #A8D0DC
 }
 
 body {
-  /* background-color: #E1E1E1; */
-  /* color: #313131; */
-  background-image: url("https://images.unsplash.com/photo-1482747029550-096ad6aa9caf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80");
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/f/ff/Milonario_El_Salvador.jpg");
   background-size: cover;
   margin: 0;
   color: #FFF;
@@ -61,13 +59,14 @@ header {
 }
 
 .nav-opc {
-  padding: 10px;
+  padding: 22px 10px;
   margin-left: 15px;
 }
 
 .nav-opc:hover {
   background-color: #A8D0DC;
   color: #313131;
+  cursor: pointer;
 }
 
 #intro {

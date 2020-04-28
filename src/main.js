@@ -33,7 +33,7 @@ let respuestasSeries = [
   "Abu Nazir", "Abu Bakhar","Abur Salah",
   "Dream Theater", "Sigur Ros","Sonata Arctica",
   "J.K Rowling", "Diana Gabaldon","Emma Thompson",
-  "Fueron escritas por George R. R. Martin", "Fueron filmadas en le mismo estudio","La música fue compuesta por Ramin Djawadi"
+  "Fueron escritas por George R. R. Martin", "Fueron filmadas en el mismo estudio","La música fue compuesta por Ramin Djawadi"
 ];
 let respuestaBuenasSeries = ["31 de octubre 2010", "Abu Nazir", "Sigur Ros", "Diana Gabaldon", "La música fue compuesta por Ramin Djawadi"];
 

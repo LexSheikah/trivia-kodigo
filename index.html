@@ -3,9 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="src/style.css">
   <title>Trivia Kodigo</title>
 </head>
 <body>
-  
+  <header>
+    <div id="nav-logo">trivia kodigo</div>
+    <div>
+      <span class="nav-opc">¿Cómo jugar?</span>
+      <span class="nav-opc">Acerca de</span>
+    </div>
+  </header>
+
+  <div id="intro" class="">
+    <div>
+      <h2>¡Bienvenido a la Trivia Kodigo!</h2>
+      <p>
+        La trivia es un juego en el que se plantea una serie de preguntas cuyas respuestas 
+        deben ser escogidas entre diferentes opciones. <span class="black">¿Te animas a jugar?</span>
+      </p>
+    </div>
+    <div id="step1">
+      <p>
+        Para comenzar, ingresa tu nombre y presiona el botón <span class="black">siguiente</span>.
+      </p>
+      <form action="">
+        <input type="text" id="txt-name" placeholder="Nombre">
+        <button type="submit" id="siguiente" class="btn">Siguiente</button>
+      </form>
+    </div>
+
+    <div id="step2" class="hidden">
+      <p>
+        Muy bien <span id="spanName" class="black">NOMBRE</span>, elecciona la categoría en la que deseas participar:
+      </p>
+      <div id="cards">
+        <div class="card" id="card-anime">
+          <h3 class="card-title">anime</h3>
+          <img class="card-img"src="https://www.alfabetajuega.com/wp-content/uploads/2020/01/anime-770x433.jpg" alt="Anime">
+        </div>
+        <div class="card" id="card-series">
+          <h3 class="card-title">series</h3>
+          <img class="card-img" src="https://e00-marca.uecdn.es/assets/multimedia/imagenes/2020/04/18/15872035944874.jpg" alt="Series">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="trivia" class="hidden">
+    <h2>¡Adelante!</h2>
+    <div id="card-trivia">
+      <div id="card-number">1/5</div>
+      <div id="card-question">¿Pregunta?</div>
+      <div id="card-answers">
+        <button id="btn-opc1" class="btn">Respuesta</button>
+        <button id="btn-opc2" class="btn">Respuesta</button>
+        <button id="btn-opc3" class="btn">Respuesta</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="score" class="hidden">
+    <h2>Resultados</h2>
+    <div id="card-score">
+      <h3 id="score-title">¡Enhorabuena!</h3>
+      <p class="black">Haz alcanzado <span id="score-points" class="astral">00</span> puntos</p>
+      <p id="score-msg">De seguro lo sabes todo</p>
+      <p id="score-answers">
+        Correctas: <span id="score-buenas" class="astral">0</span> | Incorrectas: <span id="score-malas" class="astral">0</span>
+      </p>
+      <div id="game-opcs">
+        <button id="btnJugar" class="btn">Volver a jugar</button>
+        <button id="btnSalir" class="btn">Salir del juego</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="src/main.js"></script>
 </body>
 </html>

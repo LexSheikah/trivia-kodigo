@@ -1,5 +1,6 @@
 // DECLARACION DE VARIABLES
-let nombre, opcion, contadorPregunta = 0, contadorRespuesta = 0, contadorBuenas = 0, contadorMalas = 0;
+let nombre, opcion, cantidadPreguntas = 0, contadorPregunta = 0
+let contadorRespuesta = 0, contadorBuenas = 0, contadorMalas = 0;
 
 // ARREGLOS PARA LA TRIVIA ANIME
 // src: https://www.vix.com/es/btg/series/59016/cuanto-sabes-de-anime-contesta-estas-preguntas-y-descubrelo-trivia
@@ -91,6 +92,8 @@ siguiente.addEventListener("click", function (e) {
 checkAnime.addEventListener("click", function () {
   // Establenciendo la opc seleccionada
   opcion = "anime";
+  // Obteniendo el total de las preguntas
+  cantidadPreguntas = preguntasAnime.length;
   // Invocando la función que comenzará la trivia
   empezarTrivia();
 });
@@ -99,6 +102,8 @@ checkAnime.addEventListener("click", function () {
 checkSeries.addEventListener("click", function () {
     // Establenciendo la opc seleccionada
   opcion = "series";
+  // Obteniendo el total de las preguntas
+  cantidadPreguntas = preguntasSeries.length;
   // Invocando la función que comenzará la trivia
   empezarTrivia();
 });
@@ -169,24 +174,46 @@ function empezarTrivia(){
   tiempo();
 }
 
+// Función que para la trivia
+function finalizarTrivia(){
+  // Parar el setInterval
+  clearInterval(temporizador);
+  // Mostrar Resultados
+  resultados();
+}
+
+// Función que prepara todo lo necesario para jugar la siguiente pregunta
+function siguienteTrivia(){
+  // Aumentando el contador de preguntas en 1
+  contadorPregunta++;
+  // Parar el setInterval
+  clearInterval(temporizador);
+  // Llenando la trivia con pregunta y respuestas de la siguente pregunta
+  llenarCardTrivia();
+  // Iniciando el temporizador
+  tiempo();
+}
+
 // Función que va a llevar el control del tiempo en cada pregunta
 function tiempo() {
   // Estableciendo los segundos
-  let segundos = 15;
+  let segundos = 10;
+  // Limpiando el tiempo restante
+  tiempoPregunta.innerText = "Time";
   // Estableciendo el setInterval que llevara el conteo de los segundos
   temporizador = setInterval(function() {
     // Verificar si el tiempo se ha acabado
     if (segundos < 0) {
-      // Limpiando el tiempo restante
-      tiempoPregunta.innerText = "";
-      // Aumentando el contador de preguntas en 1
-      contadorPregunta++;
-      // Parar el setInterval
-      clearInterval(temporizador);
-      // Llenando la trivia con pregunta y respuestas de la siguente pregunta
-      llenarCardTrivia();
-      // Iniciando el temporizador
-      tiempo();
+      // Aumentando el contadorMalas en 1
+        contadorMalas++
+      // Verificando si aún existen preguntas en la trivia
+      if (contadorPregunta != (cantidadPreguntas -1)) {
+        // Comenzar la siguiente trivia
+        siguienteTrivia();
+      } else {
+        // Finalizando la trivia y mostrar los resultados
+        finalizarTrivia();
+      }
     } else {
       // Mostrar el tiempo restante
       tiempoPregunta.innerText = segundos;
@@ -201,7 +228,7 @@ function llenarCardTrivia() {
   // Veficando cual trivia se está jugando
   if (opcion == "anime") {
     // Mostrar el número de la pregunta actual
-    numeroPregunta.innerText = (contadorPregunta + 1) + "/5";
+    numeroPregunta.innerText = (contadorPregunta + 1) + "/" + cantidadPreguntas;
     // Mostrar la pregunta actual
     divPregunta.innerText = preguntasAnime[contadorPregunta];
     // Mostrar las repuestas de la pregunta actual
@@ -210,7 +237,7 @@ function llenarCardTrivia() {
     btnOpc3.innerText = respuestasAnime[contadorRespuesta++];
   } else {
     // Mostrar el número de la pregunta actual
-    numeroPregunta.innerText = (contadorPregunta + 1) + "/5";
+    numeroPregunta.innerText = (contadorPregunta + 1) + "/" + cantidadPreguntas;
     // Mostrar la pregunta actual
     divPregunta.innerText = preguntasSeries[contadorPregunta];
     // Mostrar las repuestas de la pregunta actual
@@ -245,20 +272,12 @@ function compararRespuesta(res) {
     }
   }
   // Verificando si aún no ha terminado la trivia
-  if (contadorPregunta != 4) {
-    // Aumentando el contador de preguntas en 1
-    contadorPregunta++;
-    // Parar el setInterval
-    clearInterval(temporizador);
-    // Llenando la trivia con pregunta y respuestas de la siguente pregunta
-    llenarCardTrivia();
-    // Iniciando el temporizador
-    tiempo();
+  if (contadorPregunta != (cantidadPreguntas -1)) {
+    // Preparando lo necesario para jugar la siguiente pregunta
+    siguienteTrivia();
   } else {
-    // Parar el setInterval
-    clearInterval(temporizador);
-    // Mostrar Resultados
-    resultados();
+    // Finalizando la trivia y mostrar los resultados
+    finalizarTrivia();
   }
 }
 
@@ -270,9 +289,9 @@ function resultados() {
   divResultados.classList.remove('hidden');
   // Mostrando título según el puntaje
   if (contadorBuenas >= 2) {
-    scoreTitle.innerHTML = "¡Enhorabuena! <i class=\"fas fa-smile-wink\"></i>";
+    scoreTitle.innerHTML = "¡Enhorabuena " + nombre + "! <i class=\"fas fa-smile-wink\"></i>";
   } else {
-    scoreTitle.innerHTML = "¡Lástima! <i class=\"fas fa-sad-tear\"></i>";
+    scoreTitle.innerHTML = "¡Lástima " + nombre + "! <i class=\"fas fa-sad-tear\"></i>";
   }
   // Mostrar puntaje
   scorePoints.innerText = contadorBuenas * 20;

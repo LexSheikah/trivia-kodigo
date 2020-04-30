@@ -57,7 +57,8 @@ const divPregunta = document.getElementById('card-question');
 const btnOpc1 = document.getElementById('btn-opc1');
 const btnOpc2 = document.getElementById('btn-opc2');
 const btnOpc3 = document.getElementById('btn-opc3');
-const msjResultado = document.getElementById('card-msg');
+const alerta = document.getElementById('alert');
+const textoAlerta = document.getElementById('alert-msg');
 
 // Parte 3: Post-trivia
 const divResultados = document.getElementById('score');
@@ -254,20 +255,28 @@ function compararRespuesta(res) {
     // Verificar si la respuesta del usuario es correcta
     if( res == respuestaBuenasAnime[contadorPregunta] )
     {
-      alert('correcto');
+      // alert('correcto');
+      mostrarMensaje("¡Correcto!");
+      // Incrementar el contador de respuestas buenas
       contadorBuenas++;
     }else {
-      alert('incorrecto');
+      // alert('incorrecto');
+      mostrarMensaje("¡Incorrecto!");
+      // Incrementar el contador de respuestas malas
       contadorMalas++;
     }
   } else {
     // Verificar si la respuesta del usuario es correcta
     if( res == respuestaBuenasSeries[contadorPregunta] )
     {
-      alert('correcto');
+      // alert('correcto');
+      mostrarMensaje("¡Correcto!");
+      // Incrementar el contador de respuestas buenas
       contadorBuenas++;
     } else {
-      alert('incorrecto');
+      // alert('incorrecto');
+      mostrarMensaje("¡Incorrecto!");
+      // Incrementar el contador de respuestas malas
       contadorMalas++;
     }
   }
@@ -307,4 +316,21 @@ function resultados() {
   scoreBuenas.innerText = contadorBuenas;
   // Mostrar cantidad Malas
   scoreMalas.innerText = contadorMalas;
+}
+
+// Función para mostrar msj al usuario {
+function mostrarMensaje(mensaje) {
+  textoAlerta.innerText = mensaje;
+  alerta.classList.remove('hidden');
+  let segundos = 1;
+  tiempoAlerta = setInterval(function () {
+    if(segundos == 0) {
+      console.log(segundos);
+      alerta.classList.add('hidden');
+      clearInterval(tiempoAlerta);
+    } else {
+      console.log(segundos);
+      segundos--;
+    }
+  }, 1000);
 }

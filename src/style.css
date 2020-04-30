@@ -5,8 +5,8 @@ gray dark = #707070
 gray normal = #B3B8BB
 gray light = #E1E1E1
 white = #FFF
-primary = #3D829C
-secundary = #A8D0DC
+astral = #3D829C
+aqua = #A8D0DC
 */
 
 /* Google Fonts: Roboto */
@@ -20,6 +20,11 @@ secundary = #A8D0DC
 
 .astral {
   color: #3D829C;
+  font-weight: 700;
+}
+
+.aqua {
+  color: #A8D0DC;
   font-weight: 700;
 }
 
@@ -190,6 +195,15 @@ h3{
 #btn-opc1, #btn-opc2, #btn-opc3 {
   margin-top: 10px;
   padding: 10px 0px;
+}
+
+#alert {
+  background-color: #3D829C;
+  border-radius: 30px;
+  width: 350px;
+  margin: 25px auto;
+  font-size: 24px;
+  text-align: center;
 }
 
 #card-score {

@@ -9,19 +9,19 @@ La aplicación web está diseñada con una interfaz amigable pensando en el usua
 ### ¿cómo funciona la aplicación web?
 Al inicio aparece un pantalla principal donde se explica que es una trivia y una caja de texto donde debemos ingresar el nombre.
 
-[imagen 1]
+![imagen 1](https://i.imgur.com/NihkI5l.png)
 
 Luego de ingresar nuestro nombre aparece una pantalla donde nos pregunta la categoría en la que deseamos participar
 
-[imagen 2]
+![imagen 2](https://i.imgur.com/D1KEOdz.png)
 
 Finalmente llegaremos a la parte donde podemos jugar la trivia, ahí nos aparecerá una tarjeta con un indicador de tiempo (10 segundos), una pregunta y 3 botones con opciones para seleccionar, cuando demos click en alguno de los botones aparece un mensaje avisando si la opción seleccionada es correcta o incorrecta, luego se cargará la siguiente pregunta. Si el tiempo se acaba y no se responde una pregunta, automaticamente se tomará como incorrecta y se pasará a la siguiente pregunta.
 
-[imagen 3]
+![imagen 3](https://i.imgur.com/TuIbp9Z.png)
 
 Al terminar de contestar todas las preguntas nos aparecerá una patanlla mostrando los resultados de la trivia: puntos acumulados, respuesta correctas e incorrectas. Además, dos botones con la opción de "volver a jugar" que nos llevará a la pantalla donde seleccionamos la categoría de la trivia, y otro botón es para "salir del juego", que al presionarlo nos llevará a la pantalla de inicio de la app.
 
-[imagen 4]
+![imagen 4](https://i.imgur.com/QZwLISy.png)
 
 ### Experiencia de diseño
 El diseño es muchas veces la parte donde más tiempo se gasta cuando se está creando un producto nuevo. Al pensar en cómo crear un página que transmitira la emoción de estar en un juego tipo trivia, recordé los tantos programas que existen donde las personas van a participar para ganar algún premio, es por eso que decidí retomar varias ideas de esos programas, como la forma de presentar las preguntas e incluso un background con público para darle más "sabor" y dar la sensación de estar jugando en una trivia real. Acá una muestra del trototipo diseñado en Adobe XD.

@@ -332,5 +332,5 @@ function mostrarMensaje(mensaje) {
       console.log(segundos);
       segundos--;
     }
-  }, 1000);
+  }, 500);
 }
